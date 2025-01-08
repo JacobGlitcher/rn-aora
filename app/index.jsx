@@ -7,7 +7,7 @@ const App = () => {
     <View className="flex-1 items-center justify-center">
       <Text className="text-2xl font-pbold text-red-600">Aora!</Text>
       <StatusBar style="auto" />
-      <Link href="/(tabs)/profile">Go To Profile</Link>
+      <Link href="/(tabs)/home">Go To Home</Link>
     </View>
   );
 }

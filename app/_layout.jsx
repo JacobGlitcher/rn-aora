@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {View, Text, StyleSheet} from 'react-native'
-import {Slot, Stack, SplashScreen} from 'expo-router'
+import {Stack, SplashScreen} from 'expo-router'
 import {useFonts} from 'expo-font'
 
 import '../global.css'
