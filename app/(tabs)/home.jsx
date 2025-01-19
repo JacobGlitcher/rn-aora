@@ -1,9 +1,11 @@
-import {View, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 
 
 const Home = () => {
   return (
-    <View></View>
+    <View>
+      <Text>Home</Text>
+    </View>
   );
 }
 

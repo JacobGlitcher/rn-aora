@@ -1,9 +1,11 @@
-import {View, StyleSheet} from 'react-native'
+import {View, StyleSheet, Text} from 'react-native'
 
 
 const Create = () => {
   return (
-    <View></View>
+    <View>
+      <Text>Create</Text>
+    </View>
   );
 }
 

@@ -1,9 +1,11 @@
-import {View, StyleSheet} from 'react-native'
+import {View, StyleSheet, Text} from 'react-native'
 
 
 const Bookmark = () => {
   return (
-    <View></View>
+    <View>
+      <Text>Bookmark</Text>
+    </View>
   );
 }
 

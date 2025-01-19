@@ -3,7 +3,7 @@ import {View, StyleSheet, Text} from 'react-native'
 const Profile = () => {
   return (
     <View>
-      <Text>Profile component</Text>
+      <Text>Profile</Text>
     </View>
   );
 }
