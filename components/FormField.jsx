@@ -1,23 +1,41 @@
 import {useState} from 'react'
-import {View, StyleSheet, Text, TextInput} from 'react-native'
+import {View, StyleSheet, Text, TextInput, TouchableOpacity, Image} from 'react-native'
 
-const FormField = ({title, value, placeholder, handleTextChange, customStyles}) => {
+import {icons} from '../constants'
+
+const FormField = ({title, value, placeholder, handleTextChange, customStyles, keyboardType}) => {
   const [showPassword, setShowPassword] = useState(false)
+
+  const isPassword = title === 'Password'
 
   return (
     <View className={`space-y-2 ${customStyles}`}>
       <Text className="text-base text-gray-100 font-pmedium">{title}</Text>
 
-      <View className="w-full h-16 px-4 bg-black-100 border-2 border-black-200 rounded-xl focus:border-secondary items-center">
+      <View className="h-16 bg-gray-800 rounded-xl items-center relative">
         <TextInput
-          className="flex-1 text-white font-psemibold text-base"
+          className={`flex-1 px-4 rounded-xl text-white font-psemibold text-base border-2 border-gray-700 focus:border-secondary w-full ${isPassword && 'pr-12'}`}
           value={value}
           placeholder={placeholder}
           placeholderTextColor="#7b7b8b"
           onChangeText={handleTextChange}
-          secureTextEntry={title === 'Password' && !showPassword}
+          keyboardType={keyboardType}
+          secureTextEntry={isPassword && !showPassword}
         />
-      </View>
+
+        {isPassword && (
+          <TouchableOpacity
+            onPress={() => setShowPassword((prevState) => !prevState)}
+            className="absolute right-3 top-1/2 -translate-y-1/2"
+          >
+            <Image
+              source={showPassword ? icons.eyeHide : icons.eye }
+              className="w-7 h-7"
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+        )}
+      </View >
     </View>
   );
 }

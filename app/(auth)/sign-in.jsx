@@ -2,9 +2,11 @@ import {useState} from 'react'
 import {View, StyleSheet, ScrollView, Image, Text} from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
 import {StatusBar} from "expo-status-bar";
+import {Link} from 'expo-router'
 
 import {images} from "../../constants";
 import FormField from "../../components/FormField";
+import CustomButton from "../../components/CustomButton";
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -12,10 +14,16 @@ const SignIn = () => {
     password: '',
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = () => {
+
+  }
+
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
-        <View className="w-full h-full justify-center px-4 my-6">
+        <View className="w-full min-h-[90vh] justify-center px-4 my-6">
           <Image source={images.logo} resizeMode="contain" className="w-[115px] h-[35px]"/>
 
           <Text className="text-2xl text-white text-semibold mt-10 font-psemibold">Log in to Aora</Text>
@@ -33,7 +41,24 @@ const SignIn = () => {
             value={form.password}
             handleTextChange={(e) => setForm({...form, password: e})}
             customStyles="mt-7"
+            keyboardType="password"
           />
+
+          <CustomButton
+            title="Sign In"
+            containerStyles="mt-7"
+            isLoading={isSubmitting}
+            handlePress={handleSubmit}
+          />
+
+          <View className="justify-center mt-5 flex-row gap-2">
+            <Text className="text-lg text-gray-100 font-pregular">
+              Don't have an account?
+            </Text>
+            <Link href="/sign-up" className="font-psemibold text-lg text-secondary">
+              Sign Up
+            </Link>
+          </View>
         </View>
       </ScrollView>
 
@@ -45,4 +70,5 @@ const SignIn = () => {
 export default SignIn
 
 const styles = StyleSheet.create({
+
 })
